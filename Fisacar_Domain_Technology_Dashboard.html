@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fisacar · Domain &amp; Technology Landscape</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ffffff;
+  --ink:#0a0a0a;
+  --ink-2:#1f1f1f;
+  --muted:#6e6e6e;
+  --muted-2:#909090;
+  --line:#e6e6e6;
+  --line-2:#f0f0f0;
+  --wash:#fafafa;
+  --wash-2:#f5f5f5;
+  --flag:#a8121c;
+  --flag-wash:#fdf5f5;
+  --font:'Inter','Helvetica Neue',Helvetica,Arial,'Segoe UI',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font);
+  background:var(--paper);
+  color:var(--ink);
+  font-size:15px;
+  line-height:1.6;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+
+/* ---------- HERO ---------- */
+.hero{border-bottom:1px solid var(--line);padding:56px 0 0}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+.logo{height:56px;width:auto;display:block}
+.hero-meta{text-align:right;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);line-height:2}
+.hero-body{padding:48px 0 44px;max-width:920px}
+.eyebrow{
+  display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink);border:1px solid var(--ink);padding:5px 11px;margin-bottom:26px;font-weight:600;
+}
+h1{font-size:clamp(34px,4.6vw,56px);line-height:1.08;font-weight:600;letter-spacing:-.028em;margin-bottom:22px}
+.hero-domain{font-size:clamp(15px,1.7vw,19px);font-weight:500;color:var(--ink-2);line-height:1.45;margin-bottom:18px;letter-spacing:-.01em}
+.hero-desc{font-size:16px;color:var(--muted);max-width:760px;font-weight:300;line-height:1.65}
+
+/* ---------- STATS ---------- */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--wash)}
+.stats-grid{display:grid;grid-template-columns:repeat(6,1fr)}
+.stat{padding:26px 22px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat-val{font-size:27px;font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-bottom:7px}
+.stat-val small{font-size:14px;font-weight:500;color:var(--muted)}
+.stat-lab{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);line-height:1.5;font-weight:500}
+.stat-sub{font-size:11px;color:var(--muted-2);margin-top:5px;font-weight:300}
+
+/* ---------- TABS ---------- */
+.tabnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+  appearance:none;background:none;border:none;font-family:var(--font);
+  padding:19px 22px;font-size:12.5px;font-weight:500;letter-spacing:.02em;
+  color:var(--muted);cursor:pointer;white-space:nowrap;position:relative;
+  border-bottom:2px solid transparent;transition:color .16s ease;
+}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--ink);font-weight:600;border-bottom-color:var(--ink)}
+.tab:focus-visible{outline:2px solid var(--ink);outline-offset:-4px}
+.tab-idx{font-size:10px;color:var(--muted-2);margin-right:7px;font-weight:400}
+.tab[aria-selected="true"] .tab-idx{color:var(--ink)}
+
+/* ---------- PANELS ---------- */
+.panel{display:none;padding:52px 0 76px;animation:fade .28s ease}
+.panel.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+.sec{margin-bottom:52px}
+.sec:last-child{margin-bottom:0}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;padding-bottom:14px;border-bottom:1px solid var(--ink)}
+.sec-num{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--muted-2)}
+h2{font-size:21px;font-weight:600;letter-spacing:-.018em;line-height:1.25}
+.sec-lede{font-size:14.5px;color:var(--muted);margin:18px 0 26px;max-width:860px;font-weight:300;line-height:1.7}
+h3{font-size:14px;font-weight:600;letter-spacing:-.005em;margin:32px 0 14px}
+h3:first-child{margin-top:0}
+
+/* ---------- CARDS ---------- */
+.grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:26px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--paper);padding:26px 24px}
+.card-k{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted-2);margin-bottom:11px;font-weight:600}
+.card-t{font-size:15px;font-weight:600;letter-spacing:-.012em;margin-bottom:10px;line-height:1.35}
+.card-b{font-size:13.5px;color:var(--muted);line-height:1.68;font-weight:300}
+.card-b strong{color:var(--ink-2);font-weight:600}
+.card-n{font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1;margin-bottom:9px}
+
+/* bordered cards (standalone) */
+.bcard{border:1px solid var(--line);padding:26px 24px;margin-bottom:18px;background:var(--paper)}
+.bcard.dark{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.bcard.dark .card-t{color:var(--paper)}
+.bcard.dark .card-b{color:rgba(255,255,255,.72)}
+.bcard.dark .card-b strong{color:#fff}
+.bcard.dark .card-k{color:rgba(255,255,255,.5)}
+
+/* ---------- CALLOUTS ---------- */
+.call{border-left:2px solid var(--ink);background:var(--wash);padding:20px 24px;margin:24px 0}
+.call-k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:9px;color:var(--ink)}
+.call-b{font-size:13.5px;line-height:1.7;color:var(--ink-2);font-weight:300}
+.call-b strong{font-weight:600;color:var(--ink)}
+.call.flag{border-left-color:var(--flag);background:var(--flag-wash)}
+.call.flag .call-k{color:var(--flag)}
+.call.solid{background:var(--ink);border-left-color:var(--ink)}
+.call.solid .call-k{color:rgba(255,255,255,.55)}
+.call.solid .call-b{color:rgba(255,255,255,.85)}
+.call.solid .call-b strong{color:#fff}
+
+/* ---------- TABLES ---------- */
+.tw{overflow-x:auto;margin:20px 0 26px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:580px}
+th{
+  text-align:left;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  padding:13px 16px;border-bottom:1px solid var(--ink);color:var(--ink);white-space:nowrap;background:var(--paper);
+}
+td{padding:13px 16px;border-bottom:1px solid var(--line-2);color:var(--muted);vertical-align:top;line-height:1.55;font-weight:300}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--wash)}
+td strong,th strong{color:var(--ink);font-weight:600}
+td.k{color:var(--ink);font-weight:500}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* badges */
+.b{display:inline-block;font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:3px 8px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.b.ink{border-color:var(--ink);color:var(--ink)}
+.b.fill{background:var(--ink);border-color:var(--ink);color:#fff}
+.b.flag{border-color:var(--flag);color:var(--flag)}
+.b.soft{background:var(--wash-2);border-color:var(--wash-2)}
+
+/* score bars */
+.sc{display:flex;align-items:center;gap:9px;white-space:nowrap}
+.sc-n{font-weight:600;color:var(--ink);font-size:12.5px;min-width:26px;font-variant-numeric:tabular-nums}
+.sc-t{display:flex;gap:2px}
+.sc-t i{width:13px;height:5px;background:var(--line);display:block}
+.sc-t i.f{background:var(--ink)}
+.sc-t i.t{background:var(--muted-2)}
+.gap{font-weight:600;color:var(--flag);font-variant-numeric:tabular-nums}
+.gap.z{color:var(--muted-2)}
+
+/* lists */
+ul.ls{list-style:none;margin:14px 0}
+ul.ls li{padding:9px 0 9px 20px;border-bottom:1px solid var(--line-2);font-size:13.5px;color:var(--muted);position:relative;font-weight:300;line-height:1.6}
+ul.ls li:last-child{border-bottom:none}
+ul.ls li::before{content:"";position:absolute;left:0;top:17px;width:7px;height:1px;background:var(--ink)}
+ul.ls li strong{color:var(--ink);font-weight:600}
+
+/* diagram */
+.diag{
+  border:1px solid var(--line);background:var(--wash);padding:24px;overflow-x:auto;margin:22px 0 26px;
+}
+.diag pre{
+  font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  font-size:11px;line-height:1.5;color:var(--ink-2);white-space:pre;
+}
+
+/* source note */
+.src{font-size:11.5px;color:var(--muted-2);font-style:italic;margin-top:-12px;margin-bottom:24px;font-weight:300}
+
+/* footer */
+footer{border-top:1px solid var(--ink);background:var(--ink);color:rgba(255,255,255,.6);padding:40px 0 34px;margin-top:20px}
+.foot{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;align-items:flex-start}
+.foot-logo{height:30px;width:auto;opacity:.85;margin-bottom:16px}
+.foot p{font-size:11.5px;line-height:1.75;max-width:520px;font-weight:300}
+.conf{
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+  color:#fff;border:1px solid rgba(255,255,255,.35);padding:7px 13px;display:inline-block;
+}
+.foot-r{text-align:right;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;line-height:2.1;color:rgba(255,255,255,.45)}
+
+/* responsive */
+@media(max-width:1080px){
+  .stats-grid{grid-template-columns:repeat(3,1fr)}
+  .stat:nth-child(3){border-right:none}
+  .stat:nth-child(n+4){border-top:1px solid var(--line)}
+  .g4{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:860px){
+  .wrap{padding:0 24px}
+  .g3,.g2,.g4{grid-template-columns:1fr}
+  .hero-meta{text-align:left}
+  .foot{flex-direction:column}
+  .foot-r{text-align:left}
+}
+@media(max-width:560px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(odd){border-right:1px solid var(--line)}
+  .stat:nth-child(even){border-right:none}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .tab{padding:16px 14px;font-size:12px}
+  .hero{padding-top:34px}
+}
+@media print{
+  .tabnav{display:none}
+  .panel{display:block!important;page-break-before:always}
+  body{font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <img class="logo" src="data:image/png;base64,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" alt="Fisacar — Movidos Pela Excelência">
+      <div class="hero-meta">
+        Domain &amp; Technology Landscape<br>
+        Setembro de 2026 · v2<br>
+        Fontes públicas
+      </div>
+    </div>
+    <div class="hero-body">
+      <span class="eyebrow">Preparação para demonstração a cliente</span>
+      <h1>Domain &amp; Technology<br>Landscape Overview</h1>
+      <p class="hero-domain">Aquisição e Seleção de Viaturas · Comercialização e Venda · Preparação e Assistência Pós-Venda</p>
+      <p class="hero-desc">Retrato consolidado do negócio e do património tecnológico da Fisacar (Ferreira &amp; Guimarães, Lda.) neste domínio, construído exclusivamente a partir de informação pública — com o que é facto, o que é estimativa e o que é hipótese de trabalho explicitamente separados.</p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-val">10–50<small> M€</small></div>
+        <div class="stat-lab">Volume de negócios</div>
+        <div class="stat-sub">Intervalo público · tendência decrescente</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">31<small> anos</small></div>
+        <div class="stat-lab">De atividade</div>
+        <div class="stat-sub">Constituída em 1994</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">~224</div>
+        <div class="stat-lab">Viaturas em catálogo</div>
+        <div class="stat-sub">24–26 marcas · set-2026</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">TOP 5%</div>
+        <div class="stat-lab">Melhores PME Portugal</div>
+        <div class="stat-sub">SCORING 2025 · notação NS 5</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">4</div>
+        <div class="stat-lab">Propriedades digitais</div>
+        <div class="stat-sub">2 fornecedores · sem integração</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">2,1<small> / 5</small></div>
+        <div class="stat-lab">Maturidade tecnológica</div>
+        <div class="stat-sub">Alvo 3,9 · gap 1,8</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TABS ============ -->
+<nav class="tabnav">
+  <div class="wrap">
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true"  aria-controls="p1" id="t1"><span class="tab-idx">01</span>Overview</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p2" id="t2"><span class="tab-idx">02</span>A Função do Domínio</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p3" id="t3"><span class="tab-idx">03</span>Processos Core</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p4" id="t4"><span class="tab-idx">04</span>Tecnologia</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p5" id="t5"><span class="tab-idx">05</span>Lente Setorial</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p6" id="t6"><span class="tab-idx">06</span>Maturidade &amp; Roadmap</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ================= 01 OVERVIEW ================= -->
+<section class="panel on" id="p1" role="tabpanel" aria-labelledby="t1">
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">1.1</span><h2>Corporate snapshot</h2></div>
+    <p class="sec-lede">A Fisacar é uma sociedade por quotas privada, não cotada e sem relato público no sentido corporativo. Não existem relatório anual, investor relations nem comunicados de resultados: toda a informação financeira provém de bases de dados empresariais que replicam a prestação de contas depositada.</p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:26%">Elemento</th><th>Detalhe</th><th style="width:17%">Fonte</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Entidade legal</td><td>Ferreira &amp; Guimarães — Comércio e Mecânica de Automóveis, Lda. · razão social comercial <strong>Stand Fisacar</strong> · marca de mercado <strong>Fisacar Automóveis</strong></td><td>Registo comercial</td></tr>
+          <tr><td class="k">NIPC</td><td class="num">503304395</td><td>Registo comercial</td></tr>
+          <tr><td class="k">Forma jurídica / constituição</td><td>Sociedade por Quotas · 10-11-1994</td><td>Registo comercial</td></tr>
+          <tr><td class="k">Sede</td><td>Rua Joaquim Miranda Campelo 426, Moure, Barcelos (Braga)</td><td>Registo comercial</td></tr>
+          <tr><td class="k">Presença operacional</td><td>Stands em <strong>Barcelos</strong> e <strong>Braga (Ferreiros)</strong> · referência pública a <strong>Vila do Conde</strong></td><td>Website</td></tr>
+          <tr><td class="k">CAE principal</td><td>47811 — Comércio a retalho de veículos automóveis ligeiros</td><td>Registo comercial</td></tr>
+          <tr><td class="k">CAE secundários</td><td>45200 (manutenção e reparação) · 66190 (intermediação de crédito) · 77110 (aluguer)</td><td>Registo comercial</td></tr>
+          <tr><td class="k">Cotação</td><td>Não cotada · sem valores mobiliários admitidos à negociação</td><td>—</td></tr>
+          <tr><td class="k">Base de relato / moeda</td><td>SNC / NCRF (Portugal) · EUR · exercício = ano civil</td><td>Enquadramento legal</td></tr>
+          <tr><td class="k">Últimas contas</td><td>FY2024 depositado em novembro de 2025</td><td>Registo comercial</td></tr>
+          <tr><td class="k">Auditor / ROC</td><td>Não divulgado publicamente</td><td>—</td></tr>
+          <tr><td class="k">Volume de negócios</td><td><strong>10 M€ – 50 M€</strong> · evolução assinalada como <em>decrescente</em></td><td>Base de dados empresarial</td></tr>
+          <tr><td class="k">Resultados</td><td>Não divulgados publicamente</td><td>—</td></tr>
+          <tr><td class="k">Headcount</td><td>Intervalo público <strong>11–15</strong> na entidade registada · dimensão «média» <span class="b soft">estimado 30–50 na operação</span></td><td>Base de dados / triangulação</td></tr>
+          <tr><td class="k">Solidez financeira</td><td>SCORING <strong>TOP 5% Melhores PME de Portugal 2025</strong> · notação NS 5 «Excelente» · índice &gt;80% no exercício de 2024</td><td>Comunicação SCORING</td></tr>
+          <tr><td class="k">Qualidade</td><td>Declara-se «certificada pelo sistema de qualidade ISO» — norma específica não identificada</td><td>Website</td></tr>
+          <tr><td class="k">Escala operacional</td><td>Showroom ~4.000 m² · maior parque de usados do Norte (2012, &gt;200 viaturas) · +10.000 clientes históricos</td><td>Website</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="call flag">
+      <div class="call-k">Limitação a explicitar antes de qualquer conclusão</div>
+      <p class="call-b">Não existe relatório anual, apresentação a investidores ou comunicado de resultados. Os valores financeiros são <strong>intervalos</strong> de bases de dados, não demonstrações financeiras. O headcount registado (11–15) parece inconsistente com a escala observável — 2 stands, 2 oficinas, +200 viaturas em parque — e pode refletir apenas uma das entidades do grupo.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">1.2</span><h2>Estratégia e prioridades</h2></div>
+    <p class="sec-lede">Não há documento de estratégia publicado, mas o posicionamento é consistentemente legível: retalhista multimarca independente de usados e seminovos de gama média-alta, a competir por confiança, transparência e serviço — não por preço puro.</p>
+
+    <div class="grid g3">
+      <div class="card">
+        <div class="card-k">Prioridade 01</div>
+        <div class="card-t">Sourcing multicanal com importação direta</div>
+        <p class="card-b">Importação de Alemanha, França e Espanha deixou de ser serviço reativo e passou, nas palavras da empresa, a ser <strong>«uma das principais ferramentas da nossa atividade»</strong>, ancorada na otimização fiscal legítima do ISV.</p>
+      </div>
+      <div class="card">
+        <div class="card-k">Prioridade 02</div>
+        <div class="card-t">Transparência documental como diferenciador</div>
+        <p class="card-b">Compromisso público de disponibilizar proveniência, historial, situação atual e equipamento — o <strong>«livro aberto»</strong>. Implica due diligence por viatura e um artefacto que a acompanha do sourcing à venda.</p>
+      </div>
+      <div class="card">
+        <div class="card-k">Prioridade 03</div>
+        <div class="card-t">Integração vertical do pós-venda</div>
+        <p class="card-b">Oficinas multimarca próprias em Braga e Barcelos, com a promessa crítica de <strong>manutenção da garantia de fábrica</strong>. Pós-venda é simultaneamente cumprimento de garantia e centro de receita autónomo.</p>
+      </div>
+      <div class="card">
+        <div class="card-k">Prioridade 04</div>
+        <div class="card-t">Cobertura nacional sem rede física nacional</div>
+        <p class="card-b">Entrega gratuita no Continente, assistência no Continente e Ilhas, stands abertos 7 dias em Barcelos, apoio 09:00–22:00. Vende nacionalmente <strong>a partir de dois pontos no Minho</strong>.</p>
+      </div>
+      <div class="card">
+        <div class="card-k">Prioridade 05</div>
+        <div class="card-t">Digitalização do funil e prova social</div>
+        <p class="card-b">Simulador «Simular o Meu Próximo Carro», presença estruturada em agregadores, captura de leads. O reconhecimento <strong>Melhor Stand de Barcelos 2026</strong> é valorizado por assentar em avaliações de clientes.</p>
+      </div>
+      <div class="card">
+        <div class="card-k">Prioridade 06</div>
+        <div class="card-t">Transição para eletrificação no usado</div>
+        <p class="card-b">Stock já inclui BEV e híbridos (Tesla, BMW i5, Citroën ë-C3, AION V) e marcas de nova entrada (AION, MG) — novos requisitos de avaliação, garantia e capacidade oficinal.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">1.3</span><h2>Linhas de negócio e perímetro de grupo</h2></div>
+    <p class="sec-lede">A Fisacar não publica segmentação contabilística. O perímetro de negócio é, para a sua dimensão, invulgarmente completo — cobre toda a cadeia de valor automóvel, incluindo crédito e seguros próprios.</p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:24%">Unidade / linha</th><th>Descrição pública</th><th style="width:14%">Enquadramento</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Retalho de usados e seminovos</td><td>Núcleo do negócio · multimarca (~24–26 marcas) · citadino a topo de gama · comerciais com IVA dedutível · clássicos</td><td><span class="b">CAE 47811</span></td></tr>
+          <tr><td class="k">Consultoria e importação</td><td>Procura dirigida e importação direta DE/FR/ES, por encomenda e para stock próprio</td><td><span class="b">CAE 47811</span></td></tr>
+          <tr><td class="k">Oficinas próprias</td><td>Mecânica, eletricidade/eletrónica, climatização, carroçaria e pintura, pneus, pré-IPO, lavagem · marcação online</td><td><span class="b">CAE 45200</span></td></tr>
+          <tr><td class="k">Compramos Fisacar</td><td>Portal autónomo de aquisição a particulares · avaliação online · proposta &lt;48h válida 7 dias</td><td><span class="b">CAE 47811</span></td></tr>
+          <tr><td class="k">Intermediação de crédito</td><td>Financiamento automóvel em crédito ou leasing · intermediária registada</td><td><span class="b">CAE 66190</span></td></tr>
+          <tr><td class="k"><strong>InterSeguros</strong></td><td>Mediação de seguros do grupo · <strong>co-localizada nas moradas exatas dos stands</strong> de Barcelos e Braga · +25 anos, +1000 clientes declarados</td><td><span class="b ink">Entidade do grupo</span></td></tr>
+          <tr><td class="k">Mais Rent</td><td>Aluguer e frota empresarial · apresenta-se como nascida do «Grupo Fisacar» · sediada em Ferreiros, Braga</td><td><span class="b ink">Entidade associada</span></td></tr>
+          <tr><td class="k">Serviços de apoio</td><td>Entrega ao domicílio, reboque, retoma</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="call">
+      <div class="call-k">Observação estratégica</div>
+      <p class="call-b">A Fisacar detém <strong>compra, venda, oficina, crédito e seguros</strong> — um perímetro que poucos concorrentes diretos da sua dimensão conseguem reunir, com a mediação de seguros literalmente ao balcão dos stands. Esta é a vantagem estrutural mais subaproveitada do negócio, e a razão pela qual a fragmentação tecnológica descrita no separador <strong>Tecnologia</strong> é tão consequente.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= 02 FUNÇÃO ================= -->
+<section class="panel" id="p2" role="tabpanel" aria-labelledby="t2">
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">2.1</span><h2>Liderança identificável publicamente</h2></div>
+    <p class="sec-lede">A gerência e a estrutura societária não constam de fonte aberta gratuita. A equipa comercial, pelo contrário, é nomeada, visível e consistentemente elogiada nos testemunhos públicos — um ativo reputacional real.</p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:34%">Papel</th><th style="width:30%">Nome</th><th>Fonte</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Diretor de Marketing</td><td><strong>Gonçalo Azevedo</strong></td><td>Comunicação SCORING (cita-se em nome da empresa)</td></tr>
+          <tr><td class="k">Gestor de Negócios — Barcelos</td><td>Mário Ribeiro</td><td>Website · Standvirtual</td></tr>
+          <tr><td class="k">Gestor de Negócios — Barcelos</td><td>Hilário Santos</td><td>Website · Standvirtual</td></tr>
+          <tr><td class="k">Gestor de Negócios — Barcelos</td><td>Ricardo Cunha</td><td>Standvirtual</td></tr>
+          <tr><td class="k">Gestor de Negócios — Braga</td><td>Igor Costa</td><td>Website · Standvirtual</td></tr>
+          <tr><td class="k">Gestora de Negócios</td><td>Patrícia Silva</td><td>Website</td></tr>
+          <tr><td class="k">Contacto citado em testemunhos</td><td>Leandro Faria</td><td>Testemunhos publicados</td></tr>
+          <tr><td class="k">Compras · Consultadoria</td><td>Linha dedicada <span class="num">967 494 037</span> · <span class="num">964 556 867</span></td><td>Website · compras.fisacar.com</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="call flag">
+      <div class="call-k">Lacuna de liderança</div>
+      <p class="call-b">Não existe publicamente um Diretor de Pós-Venda, Diretor de Compras, Diretor de Operações <strong>ou responsável de TI</strong>. <span class="b soft">Working assumption</span> — estas responsabilidades estão concentradas na gerência e nos responsáveis de cada stand e oficina. A ausência de dono de TI é o constrangimento a montante de toda a agenda de transformação.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">2.2</span><h2>Modelo operativo</h2></div>
+    <p class="sec-lede">Integralmente in-house e verticalizado. Não há qualquer indício público de shared services, GBS, BPO ou outsourcing de TI.</p>
+
+    <div class="grid g2">
+      <div class="card">
+        <div class="card-k">Aquisição</div>
+        <div class="card-t">Equipa própria + portal de captação</div>
+        <p class="card-b">Consultoria e importação com rede internacional construída em 25+ anos, sem intermediário de sourcing identificado. A montante, o portal <strong>Compramos Fisacar</strong> capta viaturas de particulares com fluxo documentado.</p>
+      </div>
+      <div class="card">
+        <div class="card-k">Venda</div>
+        <div class="card-t">Modelo de Gestor de Negócios</div>
+        <p class="card-b">Interlocutor único por cliente, do primeiro contacto à entrega. É o mecanismo que sustenta a comunicação de «atendimento personalizado» — e também a <strong>concentração de conhecimento em pessoas</strong>.</p>
+      </div>
+      <div class="card">
+        <div class="card-k">Preparação e pós-venda</div>
+        <div class="card-t">Oficinas próprias em rede certificada</div>
+        <p class="card-b">Operadas diretamente em Barcelos e Braga, com filiação numa rede multimarca nacional que fornece certificação, regulamento de garantia e cartão de cliente. <strong>A rede efetiva é ambígua</strong> — ver separador Tecnologia.</p>
+      </div>
+      <div class="card">
+        <div class="card-k">Financiamento e seguro</div>
+        <div class="card-t">Intermediação própria + entidade de grupo</div>
+        <p class="card-b">Crédito intermediado diretamente (CAE 66190) com parceiros financeiros externos. Seguros através da <strong>InterSeguros</strong>, empresa do grupo co-localizada nos stands mas com operação e sistemas independentes.</p>
+      </div>
+      <div class="card">
+        <div class="card-k">Pós-venda fora do Minho</div>
+        <div class="card-t">Rede de parceiros não divulgada</div>
+        <p class="card-b">A empresa declara assistência em Portugal Continental e Ilhas a partir de duas oficinas próprias. <span class="b soft">Working assumption</span> — execução por oficinas terceiras da rede, cuja composição não é publicada.</p>
+      </div>
+      <div class="card">
+        <div class="card-k">Marketing e digital</div>
+        <div class="card-t">Função interna + fornecedores externos</div>
+        <p class="card-b">Diretor de Marketing nomeado. Desenvolvimento web repartido por <strong>dois fornecedores distintos</strong> — Untile e easysite — sem integrador ou arquitetura comum identificável.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">2.3</span><h2>Sub-funções do domínio</h2></div>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:26%">Macro-função</th><th>Sub-funções</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="k">Aquisição e Seleção</td>
+            <td>Sourcing nacional (retomas, portal de compra a particulares, leilões, frotas) · sourcing internacional DE-FR-ES · avaliação e peritagem · verificação de historial e proveniência · pricing de compra e margem-alvo · legalização e matrícula · gestão fiscal (ISV/IUC, IVA dedutível vs. regime da margem)</td>
+          </tr>
+          <tr>
+            <td class="k">Comercialização e Venda</td>
+            <td>Gestão e rotação de stock · preparação de anúncio e fotografia · publicação multicanal · geração e qualificação de leads · negociação e retoma · intermediação de crédito e seguro · contratação e faturação · entrega em stand ou domicílio</td>
+          </tr>
+          <tr>
+            <td class="k">Preparação e Pós-Venda</td>
+            <td>Inspeção de entrada e reparação pré-venda · preparação estética · pré-IPO · entrega técnica e ativação de garantia · gestão da garantia até 3 anos · manutenção com preservação de garantia de fábrica · mecânica, eletricidade, climatização, carroçaria e pintura · pneus e alinhamento · diagnóstico eletrónico · reboque e mobilidade · reclamações</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">2.4</span><h2>Hubs de entrega</h2></div>
+    <p class="sec-lede">Não existem shared service centres. Os hubs são físicos e concentrados no Minho — o que cria a tensão estrutural central deste domínio: alcance comercial nacional a partir de pegada operacional regional.</p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:24%">Hub</th><th style="width:26%">Localização</th><th>Função e escala</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Fisacar Barcelos <span class="b ink">Sede</span></td><td>Rua Joaquim Miranda Campelo 426, Moure</td><td>Stand principal · maior parque de usados do Norte · showroom ~4.000 m² · capacidade &gt;200 viaturas · <strong>aberto segunda a domingo</strong></td></tr>
+          <tr><td class="k">Oficina Barcelos</td><td>Contígua ao stand</td><td>Preparação, manutenção, reparação · Seg-sex 09:00-12:30 / 14:00-18:30 · sáb manhã <span class="b soft">estimado 4–8 elevadores</span></td></tr>
+          <tr><td class="k">Fisacar Braga</td><td>Centro Empresarial Ferreiros, Rua Damiana Maria Silva, lote 7</td><td>Stand · seg a sábado · escala não publicada <span class="b soft">estimado menor que Barcelos</span></td></tr>
+          <tr><td class="k">Oficina Braga</td><td>Ferreiros / Gondizalves</td><td>Preparação, manutenção, reparação · mesmo horário</td></tr>
+          <tr><td class="k">Vila do Conde</td><td>Vila do Conde</td><td>Referido em comunicação institucional · não caracterizado publicamente</td></tr>
+          <tr><td class="k">InterSeguros</td><td>Sede Rio Mau · delegações Barcelos, Braga, Vila do Conde</td><td>Mediação de seguros · <strong>nas moradas exatas dos stands</strong></td></tr>
+          <tr><td class="k">Canal digital</td><td>Virtual</td><td>Leads, live chat, agendamento · <strong>7 dias/semana, 09:00–22:00</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src">Nota: a morada de Braga surge em três variantes distintas nas fontes públicas da própria empresa — ver diagnóstico de governação de conteúdo no separador Tecnologia.</p>
+  </div>
+
+</section>
+
+<!-- ================= 03 PROCESSOS ================= -->
+<section class="panel" id="p3" role="tabpanel" aria-labelledby="t3">
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">3.1</span><h2>Cadeia end-to-end</h2></div>
+    <p class="sec-lede">Três macro-processos encadeados. O ponto crítico: os extremos da cadeia estão financeiramente acoplados — o rigor na Aquisição determina diretamente o custo no Pós-Venda, por via da garantia até 3 anos.</p>
+
+    <div class="bcard">
+      <div class="card-k">Macro-processo 01</div>
+      <div class="card-t">Source-to-Stock · Aquisição e Seleção</div>
+      <p class="card-b">Deteção de oportunidade (mercado nacional · portal Compramos Fisacar · DE-FR-ES · retoma · encomenda) → Avaliação técnica e comercial + verificação de historial e proveniência → Decisão de compra e pricing → Aquisição e transporte → Legalização, ISV, matrícula → Entrada em stock e ativação do dossiê da viatura</p>
+    </div>
+    <div class="bcard">
+      <div class="card-k">Macro-processo 02</div>
+      <div class="card-t">Stock-to-Order · Comercialização e Venda</div>
+      <p class="card-b">Preparação de conteúdo e publicação multicanal → Captação de lead (site, simulador, live chat, agregador, telefone, walk-in) → Qualificação e atribuição a Gestor de Negócios → Test drive e negociação → Avaliação da retoma → Estruturação de financiamento e seguro → Contrato e faturação → Preparação de entrega → Entrega em stand ou domicílio</p>
+    </div>
+    <div class="bcard">
+      <div class="card-k">Macro-processo 03</div>
+      <div class="card-t">Prepare-to-Serve · Preparação e Assistência Pós-Venda</div>
+      <p class="card-b">Inspeção de entrada e lista de trabalhos → Reparação pré-venda e preparação estética → Pré-IPO quando aplicável → Entrega técnica e ativação de garantia → Marcação online / receção em oficina → Diagnóstico e orçamentação na hora → Execução, peças e controlo de qualidade → Faturação e carimbo do livro de revisões → Follow-up, garantia e reclamações</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">3.2</span><h2>O processo de aquisição a particulares, documentado</h2></div>
+    <p class="sec-lede">O portal <strong>Compramos Fisacar</strong> é o único processo do domínio com fluxo, SLA e pressupostos integralmente publicados — e por isso o mais auditável.</p>
+
+    <div class="grid g4">
+      <div class="card"><div class="card-n">01</div><div class="card-t">Submissão</div><p class="card-b">Matrícula, registo, marca, modelo e versão. A avaliação assenta na precisão da informação prestada pelo cliente.</p></div>
+      <div class="card"><div class="card-n">02</div><div class="card-t">Proposta</div><p class="card-b">Enviada por email em prazo <strong>inferior a 48 horas</strong>, analisada «pelos nossos especialistas». Válida <strong>7 dias</strong>.</p></div>
+      <div class="card"><div class="card-n">03</div><div class="card-t">Inspeção</div><p class="card-b">Verificação presencial no centro de entrega. A empresa reserva o direito de rever o valor definitivo ou não adquirir.</p></div>
+      <div class="card"><div class="card-n">04</div><div class="card-t">Fecho</div><p class="card-b">Certidão da viatura · compra documentada · pagamento por transferência · <strong>registo em 48h</strong> · mudança de propriedade gratuita.</p></div>
+    </div>
+
+    <h3>Pressupostos de avaliação publicados</h3>
+    <ul class="ls">
+      <li>Ter os <strong>impostos em dia</strong> e <strong>IPO válida</strong></li>
+      <li>Ter <strong>matrícula portuguesa</strong></li>
+      <li>Nunca ter sido considerado <strong>perda total</strong> num sinistro</li>
+      <li>Nunca ter sido utilizado como <strong>táxi, rent-a-car, escola de condução ou competição</strong></li>
+      <li><strong>Quilometragem não viciada</strong></li>
+      <li>Ter <strong>manuais e livro de revisões</strong> e <strong>duplicado de chaves</strong></li>
+      <li>Ser <strong>proprietário</strong> da viatura e esta <strong>não estar penhorada</strong></li>
+      <li>Viaturas financiadas são aceites — com pedido de valor de liquidação à financeira e pagamento por <strong>encontro de contas</strong></li>
+    </ul>
+
+    <div class="call">
+      <div class="call-k">Leitura</div>
+      <p class="call-b">Este é um processo comercialmente maduro e bem desenhado. A limitação não está no processo — está em que a <strong>valorização é humana e não algorítmica</strong>, e em que o portal vive isolado do resto do património digital, num fornecedor distinto. Os dados estruturados que capta seriam a matéria-prima natural de um motor de avaliação assistida.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">3.3</span><h2>Cadência publicada</h2></div>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:30%">Cadência</th><th>Detalhe</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Horário comercial Barcelos</td><td>Seg-sex 09:00-12:30 / 14:00-19:30 · sáb-dom 09:30-12:30 / 14:30-18:30 — <strong>inclui domingo</strong></td></tr>
+          <tr><td class="k">Horário comercial Braga</td><td>Seg-sáb · domingo fechado</td></tr>
+          <tr><td class="k">Horário das oficinas</td><td>Seg-sex 09:00-12:30 / 14:00-18:30 · sáb 09:00-12:30</td></tr>
+          <tr><td class="k">Apoio ao cliente e leads</td><td>Todos os dias, <strong>09:00–22:00</strong> · consultadoria seg-sex até às 20:00, fim de semana 10:00-19:00</td></tr>
+          <tr><td class="k">Marcação de oficina</td><td>Compromisso explícito de disponibilidade «praticamente imediata»</td></tr>
+          <tr><td class="k">Orçamentação</td><td>Diagnóstico e orçamento <strong>na hora</strong>, sem revisão de preço final</td></tr>
+          <tr><td class="k">Proposta de compra a particular</td><td>&lt;48h por email · validade 7 dias · registo em 48h após fecho</td></tr>
+          <tr><td class="k">Prestação de contas</td><td>Anual, depósito da IES — FY2024 depositado em nov-2025</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="call flag">
+      <div class="call-k">Desfasamento estrutural</div>
+      <p class="call-b">O stand de Barcelos <strong>vende ao domingo; as oficinas fecham</strong>. Existe um desalinhamento permanente entre o momento de compromisso comercial e a capacidade de preparação — sete dias de operação comercial contra cinco e meio de operação oficinal.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">3.4</span><h2>Outputs-chave e indicadores</h2></div>
+    <div class="grid g3">
+      <div class="card"><div class="card-k">Output</div><div class="card-t">Dossiê da viatura</div><p class="card-b">O «livro aberto»: proveniência, historial, quilometragem certificada, situação atual, equipamento.</p></div>
+      <div class="card"><div class="card-k">Output</div><div class="card-t">Certificado de garantia</div><p class="card-b">Fabricante ou Fisacar, <strong>até 3 anos</strong> — responsabilidade diferida sobre ativos com desgaste acumulado.</p></div>
+      <div class="card"><div class="card-k">Output crítico</div><div class="card-t">Livro de revisões carimbado</div><p class="card-b">Reconhecido oficialmente pelas marcas. É este output que sustenta toda a promessa de não perda de garantia de fábrica.</p></div>
+    </div>
+
+    <h3>Indicadores — público vs. não disponível</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:27%">KPI</th><th style="width:33%">Valor público / observado</th><th style="width:16%">Estatuto</th><th>Nota</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Volume de negócios</td><td class="num">10–50 M€ · decrescente</td><td><span class="b ink">Público</span></td><td>Intervalo de base de dados</td></tr>
+          <tr><td class="k">Solidez financeira</td><td>&gt;80% · notação NS 5 · TOP 5% PME 2025</td><td><span class="b ink">Público</span></td><td>Exercício de 2024</td></tr>
+          <tr><td class="k">Stock de viaturas</td><td class="num">~224 no catálogo</td><td><span class="b flag">Inconsistente</span></td><td>«cerca de 300» e «+600» noutras páginas próprias</td></tr>
+          <tr><td class="k">Cobertura de marcas</td><td class="num">24–26 marcas</td><td><span class="b ink">Público</span></td><td>Multimarca por desenho</td></tr>
+          <tr><td class="k">Preço médio do stock</td><td class="num">~24,5 k€ · 6,5–58,9 k€</td><td><span class="b ink">Público</span></td><td>Observado em agregador</td></tr>
+          <tr><td class="k">Base de clientes</td><td class="num">+10.000 acumulados</td><td><span class="b">Claim</span></td><td>Comunicação institucional</td></tr>
+          <tr><td class="k">Reputação</td><td><strong>1.º — Melhor Stand de Barcelos 2026</strong></td><td><span class="b ink">Público</span></td><td>Plataforma Avaly · selo Stand Recomendado</td></tr>
+          <tr><td class="k">Days in stock</td><td>—</td><td><span class="b soft">Estimado 60–90 dias</span></td><td>Típico do segmento</td></tr>
+          <tr><td class="k">Gross profit per unit (GPU)</td><td>—</td><td><span class="b flag">Não disponível</span></td><td>KPI central do negócio</td></tr>
+          <tr><td class="k">Conversão de lead</td><td>—</td><td><span class="b flag">Não disponível</span></td><td>Funil não instrumentado</td></tr>
+          <tr><td class="k">Penetração de F&amp;I</td><td>—</td><td><span class="b flag">Não disponível</span></td><td>Relevante dado CAE 66190 + InterSeguros</td></tr>
+          <tr><td class="k">Taxa de retorno à oficina</td><td>—</td><td><span class="b flag">Não disponível</span></td><td><strong>Mede a tese de integração vertical</strong></td></tr>
+          <tr><td class="k">Absorção do pós-venda</td><td>—</td><td><span class="b flag">Não disponível</span></td><td>% de custos fixos cobertos pela oficina</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= 04 TECNOLOGIA ================= -->
+<section class="panel" id="p4" role="tabpanel" aria-labelledby="t4">
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">4.1</span><h2>Executive snapshot do estate</h2></div>
+    <p class="sec-lede">Moderno na superfície, opaco no núcleo e — o achado central — estruturalmente disperso. O que parecia um conjunto de dois sites revela-se pelo menos quatro propriedades digitais autónomas, construídas por fornecedores diferentes, cobrindo etapas consecutivas do mesmo processo.</p>
+
+    <div class="grid g3">
+      <div class="card">
+        <div class="card-k">Distintivo 01</div>
+        <div class="card-t">Fragmentação por etapa, com fornecedores distintos</div>
+        <p class="card-b">Um cliente que <strong>vende</strong> um carro (compras.fisacar.com), <strong>compra</strong> outro (fisacar.com), o <strong>segura</strong> (interseguros.pt) e depois o <strong>mantém</strong> (fisacaroficinas.pt) atravessa quatro sistemas que o tratam como quatro pessoas diferentes. Cada propriedade tem Livro de Reclamações, Termos e Política de Privacidade próprios.</p>
+      </div>
+      <div class="card">
+        <div class="card-k">Distintivo 02</div>
+        <div class="card-t">Colisão de marcas na rede oficinal</div>
+        <p class="card-b">fisacaroficinas.pt comunica <strong>Red Service</strong>; a página de contactos de fisacar.com intitula-se «Contactos Fisacar e Oficinas <strong>Bosch Car Service</strong>»; um diretório lista «BOSCH CAR SERVICE — FERREIRA &amp; GUIMARÃES, LDA.» com email geral@fisacar.com. São redes concorrentes.</p>
+      </div>
+      <div class="card">
+        <div class="card-k">Distintivo 03</div>
+        <div class="card-t">Valor de cliente não observável</div>
+        <p class="card-b">Com o funil de compra no easysite, o de venda no Untile, a marcação de stand no BUK, a de oficina num formulário, o seguro na InterSeguros e o histórico na rede oficinal, <strong>não existe nenhum ponto no sistema onde o valor de um cliente seja visível</strong>.</p>
+      </div>
+    </div>
+
+    <div class="call flag">
+      <div class="call-k">Primeira pergunta a fazer ao cliente</div>
+      <p class="call-b">A coexistência Red Service / Bosch Car Service é um <strong>facto observável</strong>; a sua interpretação não. A evidência não revela se se trata de transição em curso, de uma oficina por rede, ou de conteúdo desatualizado. A resposta altera materialmente três secções desta análise — e determina onde reside o histórico de manutenção dos clientes.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">4.2</span><h2>Vista lógica de arquitetura</h2></div>
+    <div class="diag">
+<pre>CANAIS E ORIGENS DE PROCURA
+Standvirtual · Encontra Carros · Avaly · Google/SEO · Walk-in · WhatsApp · Messenger
+        |  leads de COMPRA (quem vende)          leads de VENDA (quem compra)  |
+        |  [sincronizacao NAO documentada]                                     |
+        v                                                                      v
++----------------------+  +-----------------------+  +------------------------------+
+| compras.fisacar.com  |  | fisacar.com           |  | fisacaroficinas.pt           |
+| "COMPRAMOS FISACAR"  |  | STAND / VENDA         |  | OFICINA / POS-VENDA          |
+| -- easysite --       |  | -- Untile --          |  | -- Untile --                 |
++----------------------+  +-----------------------+  +------------------------------+
+| Form. de avaliacao:  |  | Catalogo filtravel    |  | Catalogo de servicos         |
+| matricula · registo  |  | Novidade/Oportunidade |  | Noticias · Campanhas         |
+| marca · modelo ·     |  | /Vendido              |  | Recrutamento                 |
+| versao               |  | SIMULADOR "Simular o  |  | "Marcar Revisao"             |
+| Pressupostos         |  | Meu Proximo Carro"    |  | "Pedir Orcamento"            |
+| publicados           |  | Captura lead (telem.) |  |  -> FORMULARIO, nao          |
+| Proposta &lt;48h,       |  | Live chat 9h-22h      |  |     calendario transacional  |
+| valida 7 dias        |  | Testemunhos           |  |                              |
+| Viatura financiada   |  | Reconhecimentos       |  | MARCA: "Fisacar Red Service" |
++----------+-----------+  +----------+------------+  +--------------+---------------+
+           |                         |                              |
+           |            +------------+---------+       +------------+---------------+
+           |            |  BUK (SaaS)          |       | interseguros.pt            |
+           |            |  buk.pt/fisacar      |       | INTERSEGUROS / Interneiva  |
+           |            |  "Marcar Visita ao   |       | Mediacao de seguros        |
+           |            |   Stand"             |       | -- empresa do GRUPO --     |
+           |            |  [dominio externo]   |       | Co-localizada nas moradas  |
+           |            |  Conteudo            |       | Fisacar (Barcelos, Braga)  |
+           |            |  desatualizado       |       | Simulacao online · ASF     |
+           |            +----------------------+       +----------------------------+
+           |
+           |   [!] ASSIMETRIA: visita ao stand = calendario SaaS
+           |       marcacao de oficina  = formulario de pedido
+           |
+           |   [!] COLISAO DE MARCA NA REDE OFICINAL
+           |   +--------------------------+    +------------------------------+
+           |   | REDE A · RED SERVICE     |    | REDE B · BOSCH CAR SERVICE   |
+           |   | (Leirilis)               | vs | (Robert Bosch)               |
+           |   | Plataforma RedService:   |    | Registo em diretorio:        |
+           |   | ASP.NET Core · React.js  |    | "BOSCH CAR SERVICE —         |
+           |   | Microsoft SQL Server     |    |  FERREIRA &amp; GUIMARAES, LDA." |
+           |   | + app iOS/Android        |    |  geral@fisacar.com           |
+           |   | Agendamento · historico  |    | Rede Bosch: ESI[tronic],     |
+           |   | de manutencao · cartao   |    | garantia nacional            |
+           |   | FONTE: fisacaroficinas.pt|    | FONTE: pag. contactos        |
+           |   +--------------------------+    +------------------------------+
+           |     -> historico de manutencao potencialmente repartido
+           |        por DUAS plataformas de terceiros concorrentes
+           v
+NUCLEO DE BACK-OFFICE — NAO IDENTIFICAVEL PUBLICAMENTE
+  ?  ERP / faturacao certificada AT (existe por obrigacao legal; produto nao publico)
+  ?  Gestao de stock de viaturas e dossie da viatura
+  ?  CRM / gestao de leads e carteira do Gestor de Negocios
+  ?  Gestao de oficina, pecas e ordens de reparacao
+  ?  Contabilidade e fiscalidade (ISV, regime da margem, IVA dedutivel)
+  ?  Intermediacao de credito — portais dos financiadores
+  ?  Sistema de mediacao de seguros (InterSeguros — entidade distinta)
+           |
+           v
+REPORTING E ANALITICA
+  [x] Nenhuma plataforma de BI ou dashboard de gestao evidenciada publicamente
+  [~] Google Analytics / pixels (working assumption)
+  [~] Paineis nativos dos marketplaces — silos por canal
+  [x] Sem visao consolidada de funil, rotacao de stock, margem ou valor de cliente</pre>
+    </div>
+
+    <h3>Sinais de diagnóstico observáveis</h3>
+    <div class="grid g4">
+      <div class="card"><div class="card-k">Sinal 01</div><div class="card-t">Stock divergente</div><p class="card-b">224 (catálogo) · «cerca de 300» · «mais de 600» · «+300» na meta da página de contactos</p></div>
+      <div class="card"><div class="card-k">Sinal 02</div><div class="card-t">Morada de Braga</div><p class="card-b">Três variantes: «Damiana Maria da Silva 14, Gondizalves» · «lote 7, Ferreiros» · «Lote 7, 4705-160»</p></div>
+      <div class="card"><div class="card-k">Sinal 03</div><div class="card-t">Prazo de proposta</div><p class="card-b">«resposta em 24h» na meta vs. «prazo inferior a 48 horas» na página Funcionamento</p></div>
+      <div class="card"><div class="card-k">Sinal 04</div><div class="card-t">Antiguidade</div><p class="card-b">«mais de 30 anos» em fisacar.com vs. «mais de 25 anos» na página BUK</p></div>
+    </div>
+
+    <div class="call solid">
+      <div class="call-k">Conclusão do diagnóstico</div>
+      <p class="call-b">Quatro inconsistências públicas em quatro propriedades distintas. <strong>Não é erro pontual — é ausência de governação de conteúdo e de fonte única de verdade.</strong> É também o material mais sólido para abrir a conversa com o cliente, porque é observável, verificável e difícil de contestar.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">4.3</span><h2>Módulos em âmbito e cobertura atual</h2></div>
+    <p class="sec-lede">Como o ERP/DMS não é público, a tabela define o âmbito funcional necessário ao domínio e classifica a evidência de cobertura.</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:6%">#</th><th style="width:26%">Módulo funcional</th><th style="width:20%">Processo</th><th>Evidência de cobertura</th></tr></thead>
+        <tbody>
+          <tr><td class="k num">M1</td><td class="k">Gestão de stock de viaturas</td><td>Aquisição</td><td><span class="b flag">Parcial e inconsistente</span> Catálogo web existe, mas contagens divergem entre páginas próprias</td></tr>
+          <tr><td class="k num">M2</td><td class="k">Avaliação e peritagem de entrada</td><td>Aquisição</td><td><span class="b ink">Parcial</span> Coberto por compras.fisacar.com na captura; motor de valorização e inspeção não instrumentados</td></tr>
+          <tr><td class="k num">M3</td><td class="k">Compras e importação</td><td>Aquisição</td><td><span class="b flag">Não evidenciado</span></td></tr>
+          <tr><td class="k num">M4</td><td class="k">Legalização e fiscalidade do veículo</td><td>Aquisição</td><td><span class="b flag">Não evidenciado</span> Obrigatório por processo</td></tr>
+          <tr><td class="k num">M5</td><td class="k">CRM e gestão de leads</td><td>Venda</td><td><span class="b flag">Parcial</span> Captura existe; gestão subsequente não evidenciada</td></tr>
+          <tr><td class="k num">M6</td><td class="k">Publicação e sindicação de anúncios</td><td>Venda</td><td><span class="b ink">Ativo</span> Multicanal · mecanismo de sincronização não público</td></tr>
+          <tr><td class="k num">M7</td><td class="k">Proposta, retoma e negociação</td><td>Venda</td><td><span class="b flag">Não evidenciado</span></td></tr>
+          <tr><td class="k num">M8</td><td class="k">Intermediação de crédito e seguro</td><td>Venda</td><td><span class="b ink">Capacidade forte</span> Crédito CAE 66190 + InterSeguros — mas em entidades e funis separados</td></tr>
+          <tr><td class="k num">M9</td><td class="k">Contratação e faturação certificada</td><td>Venda</td><td><span class="b">Existe por lei</span> Produto não público</td></tr>
+          <tr><td class="k num">M10</td><td class="k">Entrega e logística</td><td>Venda</td><td><span class="b">Serviço ativo</span> Sistema de planeamento não evidenciado</td></tr>
+          <tr><td class="k num">M11</td><td class="k">Ordens de reparação e preparação</td><td>Pós-venda</td><td><span class="b">Enquadramento de rede disponível</span> Utilização efetiva não pública</td></tr>
+          <tr><td class="k num">M12</td><td class="k">Gestão de peças e armazém</td><td>Pós-venda</td><td><span class="b flag">Não evidenciado</span></td></tr>
+          <tr><td class="k num">M13</td><td class="k">Agendamento de serviço</td><td>Pós-venda</td><td><span class="b flag">Duplicado e assimétrico</span> Stand em calendário SaaS · oficina em formulário</td></tr>
+          <tr><td class="k num">M14</td><td class="k">Gestão de garantia e reclamações</td><td>Pós-venda</td><td><span class="b flag">Ambíguo</span> Regulamento aplicável depende da rede efetiva</td></tr>
+          <tr><td class="k num">M15</td><td class="k">Histórico de manutenção do veículo</td><td>Pós-venda</td><td><span class="b flag">Risco de repartição</span> Entre plataforma RedService e infraestrutura Bosch</td></tr>
+          <tr><td class="k num">M16</td><td class="k">Reporting e KPIs de gestão</td><td>Transversal</td><td><span class="b flag">Não evidenciado</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">4.4</span><h2>Parceiros e fornecedores identificados</h2></div>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:18%">Parceiro</th><th style="width:22%">Papel</th><th>Evidência e notas</th></tr></thead>
+        <tbody>
+          <tr><td class="k"><strong>Untile</strong></td><td>Desenvolvimento de fisacar.com e fisacaroficinas.pt</td><td>Rodapé «Developed by web.untile». Estúdio de produto digital fundado em 2009, sede em <strong>Viana do Castelo</strong>, 11–50 colaboradores. Laravel, React.js, Angular, Vue.js, Node.js, React Native · <strong>Webflow Certified Partner</strong> desde jul-2023 · 100+ empresas · SCORING TOP 5% e TOP 10 PME do setor 2025</td></tr>
+          <tr><td class="k"><strong>easysite</strong></td><td>Desenvolvimento de compras.fisacar.com</td><td>Rodapé «Desenvolvido por easysite». <strong>Segundo fornecedor web identificado</strong> — o indicador mais direto de ausência de arquitetura-alvo comum</td></tr>
+          <tr><td class="k"><strong>BUK</strong></td><td>SaaS de marcações online (visita ao stand)</td><td>Página ativa em buk.pt/fisacar · domínio próprio do fornecedor · conteúdo desatualizado face ao site principal</td></tr>
+          <tr><td class="k"><strong>RedService / Leirilis, S.A.</strong></td><td>Rede oficinal multimarca · plataforma de gestão</td><td>Plataforma para uniformizar a gestão oficinal da rede: <strong>ASP.NET Core · React.js · Microsoft SQL Server</strong>, metodologia ágil, app híbrida iOS/Android — documentado em dissertação de mestrado do <strong>Instituto Politécnico de Leiria (2024)</strong></td></tr>
+          <tr><td class="k"><strong>Bosch Car Service</strong></td><td>Rede oficinal certificada multimarca</td><td>Registo público «BOSCH CAR SERVICE — FERREIRA &amp; GUIMARÃES, LDA.», Rua Damiana Silva Lote 7, Braga, geral@fisacar.com · diagnóstico <strong>ESI[tronic]</strong> · <strong>garantia honrada em qualquer oficina da rede a nível nacional</strong></td></tr>
+          <tr><td class="k"><strong>InterSeguros</strong></td><td>Mediação de seguros do grupo</td><td>Interseguros — Mediação e Gestão de Seguros, Lda. (marca também Interneiva) · delegações nas moradas Fisacar de Barcelos e Braga · +25 anos, +1000 clientes · supervisão ASF</td></tr>
+          <tr><td class="k">Standvirtual</td><td>Marketplace principal (OLX Group)</td><td>Perfil «Fisacar Automóveis» com equipa, serviços e anúncios</td></tr>
+          <tr><td class="k">Encontra Carros · Avaly</td><td>Agregador · plataforma de avaliação</td><td>Avaly atribuiu «Melhor Stand de Barcelos 2026» + selo Stand Recomendado</td></tr>
+          <tr><td class="k"><em>Integrador de sistemas</em></td><td>—</td><td><span class="b flag">Nenhum identificado</span> Sem SI, BPO ou parceiro de outsourcing de TI atribuível. <span class="b soft">Working assumption</span> — suporte por prestadores locais e pelos próprios fornecedores de software</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">4.5</span><h2>Automação e IA</h2></div>
+    <p class="sec-lede">Estado factual: não existe qualquer iniciativa de IA, ML ou RPA publicamente divulgada pela Fisacar. Não há comunicação, parceria anunciada, posição técnica aberta ou caso de estudo nesta área.</p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:26%">Capacidade</th><th style="width:42%">O que se observa</th><th>Classificação</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Simulador «Simular o Meu Próximo Carro»</td><td>Questionário estruturado que gera relatório personalizado com matching ao stock real</td><td><span class="b ink">Automação de decisão assistida</span> Motor não divulgado — <span class="b soft">working assumption</span> de regras sobre atributos, não necessariamente ML</td></tr>
+          <tr><td class="k">Portal de avaliação de compra</td><td>Captura estruturada com pressupostos formalizados; proposta «analisada pelos nossos especialistas»</td><td><span class="b flag">Valorização humana</span> Sem cruzamento automatizado com dados de mercado</td></tr>
+          <tr><td class="k">Live chat</td><td>Chat no site oficial, referenciado como diferenciador</td><td><span class="b">Indeterminado</span> Humano, automatizado ou híbrido</td></tr>
+          <tr><td class="k">Captura de lead / catálogo</td><td>Formulário com consentimento RGPD · filtros dinâmicos · estados automáticos</td><td><span class="b">Automação básica</span></td></tr>
+          <tr><td class="k">RPA</td><td>—</td><td><span class="b flag">Nenhuma evidência</span></td></tr>
+          <tr><td class="k">ML / analítica preditiva</td><td>Sem pricing dinâmico, previsão de procura ou avaliação algorítmica identificáveis</td><td><span class="b flag">Nenhuma evidência</span></td></tr>
+          <tr><td class="k">GenAI</td><td>—</td><td><span class="b flag">Nenhuma evidência</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="call">
+      <div class="call-k">Contexto setorial</div>
+      <p class="call-b">O mercado português de software para stands já se posiciona em torno da IA, citando o relatório europeu <em>Digital Decade 2025 – Portugal</em>: apenas <strong>8,63% das empresas portuguesas usavam IA em 2024</strong>, contra 13,48% na média europeia, embora 74,26% das PME já tivessem intensidade digital básica. Do lado da rede, a dissertação sobre a Plataforma RedService identifica explicitamente a implementação de IA como evolução futura. <strong>A Fisacar está alinhada com a média nacional: base digital presente, camada de IA ausente.</strong></p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">4.6</span><h2>Camada de conformidade</h2></div>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:24%">Domínio regulatório</th><th style="width:28%">Instrumento</th><th>Implicação tecnológica</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Faturação e fiscalidade</td><td>Certificação AT · e-Fatura · SAF-T (PT)</td><td>Software de faturação certificado é obrigatório e condiciona a escolha de ERP</td></tr>
+          <tr><td class="k">IVA — regime da margem</td><td>Regime especial dos bens em segunda mão</td><td>O sistema tem de distinguir regime da margem de IVA dedutível <strong>ao nível de cada viatura</strong>; erro afeta diretamente a margem</td></tr>
+          <tr><td class="k">ISV / IUC</td><td>Código do ISV · tabelas de desvalorização</td><td>Cálculo por viatura importada — determinante na economia do modelo de importação direta</td></tr>
+          <tr><td class="k">Importação intra-UE</td><td>COC · DAV · homologação · registo IMT</td><td>Gestão documental por viatura, com rastreabilidade</td></tr>
+          <tr><td class="k">Proteção de dados</td><td>RGPD · Lei n.º 58/2019</td><td><span class="b flag">Agravado pela dispersão</span> Dados em 7+ localizações, incluindo <strong>matrícula associada a proprietário</strong> em compras.fisacar.com. Políticas separadas por propriedade; direitos do titular exigiriam varrimento manual transversal</td></tr>
+          <tr><td class="k">Defesa do consumidor</td><td>DL n.º 84/2021</td><td>Garantia legal mínima de 1 ano em usados. A Fisacar oferece <strong>até 3 anos</strong> — responsabilidade diferida que exige rastreio sistemático</td></tr>
+          <tr><td class="k">Intermediação de crédito</td><td>DL n.º 81-C/2017 · supervisão Banco de Portugal</td><td>Deveres de informação pré-contratual, registo e conservação documental</td></tr>
+          <tr><td class="k">Mediação de seguros</td><td>Distribuição de seguros · supervisão ASF</td><td><strong>Confirmadamente aplicável ao grupo</strong> via InterSeguros — deveres de registo, formação contínua e conservação, em perímetro societário distinto</td></tr>
+          <tr><td class="k">Compra a particulares</td><td>Registo automóvel · DUA · certidão permanente · verificação de penhoras</td><td>Documentado publicamente: certidão antes da transmissão, registo em 48h. Exige gestão documental rastreável por transação</td></tr>
+          <tr><td class="k">Veículos elétricos</td><td>Formação e certificação para alta tensão</td><td><span class="b flag">Lacuna</span> Sem evidência pública de certificação HV, apesar do stock BEV já comercializado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= 05 LENTE SETORIAL ================= -->
+<section class="panel" id="p5" role="tabpanel" aria-labelledby="t5">
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">5.1</span><h2>O que torna este domínio mais difícil aqui</h2></div>
+    <p class="sec-lede">Onze fatores que distinguem a operação da Fisacar de um retalhista automóvel genérico — e que condicionam qualquer intervenção tecnológica.</p>
+
+    <div class="grid g2">
+      <div class="card"><div class="card-k">01 · Estrutural</div><div class="card-t">Cada unidade de stock é única</div><p class="card-b">Não há SKU. Cada viatura tem ano, quilometragem, equipamento, historial e estado distintos — <strong>avaliação, pricing, preparação e garantia são processos unitários, não de série</strong>. A escalabilidade é limitada por desenho pelo julgamento humano.</p></div>
+      <div class="card"><div class="card-k">02 · Fiscal</div><div class="card-t">Sourcing transfronteiriço com exposição fiscal</div><p class="card-b">Importar de DE/FR/ES obriga a dominar ISV, tabelas de desvalorização, homologação, COC, matrícula e regime de IVA. <strong>Um erro de enquadramento consome diretamente a margem</strong> — e a empresa afirma publicamente que o benefício fiscal é parte da proposta de valor.</p></div>
+      <div class="card"><div class="card-k">03 · Operacional</div><div class="card-t">Multimarca com garantia de fábrica</div><p class="card-b">Manter a garantia do fabricante numa oficina independente exige planos de manutenção corretos, peças equivalentes e documentação aceite pela marca — replicado por <strong>24+ marcas</strong>. Um concessionário monomarca tem um plano; a Fisacar tem dezenas.</p></div>
+      <div class="card"><div class="card-k">04 · Estrutural</div><div class="card-t">Alcance nacional, pegada regional</div><p class="card-b">Entrega gratuita no Continente e assistência no Continente e Ilhas a partir de <strong>dois pontos no Minho</strong>. A maioria dos clientes pós-venda está fora do raio das oficinas próprias: a Fisacar controla a promessa, não o serviço.</p></div>
+      <div class="card"><div class="card-k">05 · Financeiro</div><div class="card-t">Garantia até 3 anos sobre usados</div><p class="card-b">Responsabilidade diferida sobre ativos com desgaste acumulado, cuja provisão depende inteiramente da qualidade da inspeção de entrada. <strong>Os dois extremos da cadeia estão financeiramente acoplados.</strong></p></div>
+      <div class="card"><div class="card-k">06 · Emergente</div><div class="card-t">Eletrificação do parque usado</div><p class="card-b">BEV e híbridos introduzem a variável mais difícil de avaliar: o <strong>estado de saúde da bateria (SoH)</strong>, que pode dominar o valor residual e para a qual não há standard de peritagem consensual. Acresce formação e certificação de alta tensão.</p></div>
+      <div class="card"><div class="card-k">07 · Emergente</div><div class="card-t">Marcas de nova entrada</div><p class="card-b">AION e MG trazem histórico residual de valor, disponibilidade de peças incerta e redes de assistência em formação — risco acrescido no pricing de compra e na cobertura de garantia.</p></div>
+      <div class="card"><div class="card-k">08 · Comercial</div><div class="card-t">B2B paralelo com IVA dedutível</div><p class="card-b">Comerciais com IVA dedutível constituem uma linha com regras fiscais, ciclos de decisão e expectativas de imobilização completamente distintas do retalho particular.</p></div>
+      <div class="card"><div class="card-k">09 · Operacional</div><div class="card-t">Sete dias comerciais, cinco e meio oficinais</div><p class="card-b">O stand de Barcelos vende ao domingo; as oficinas fecham. Desfasamento permanente entre o momento de compromisso comercial e a capacidade de preparação.</p></div>
+      <div class="card"><div class="card-k">10 · Reputacional</div><div class="card-t">Dependência de plataformas de terceiros</div><p class="card-b">O posicionamento assenta em avaliações públicas (Avaly, Standvirtual, Google). <strong>A reputação é um ativo operacional gerido em infraestrutura que a empresa não controla.</strong></p></div>
+      <div class="card"><div class="card-k">11 · Organizacional</div><div class="card-t">Concentração de conhecimento</div><p class="card-b">Com headcount registado de 11–15, competências críticas — avaliação, sourcing internacional, negociação — estão <span class="b soft">estimadamente</span> concentradas em poucas pessoas. Risco de continuidade elevado, pouca margem para formalizar processo.</p></div>
+      <div class="card"><div class="card-k">12 · Tecnológico</div><div class="card-t">Perímetro largo, sistemas estreitos</div><p class="card-b">O perímetro de negócio — compra, venda, oficina, crédito, seguros — é invulgarmente completo para a dimensão. <strong>É precisamente essa amplitude que torna a fragmentação tecnológica tão cara</strong>: há mais adjacências por explorar e menos capacidade de as ligar.</p></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">5.2</span><h2>Eventos recentes e a monitorizar</h2></div>
+
+    <h3>Recentes · confirmados publicamente</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:14%">Data</th><th style="width:38%">Evento</th><th>Impacto no domínio</th></tr></thead>
+        <tbody>
+          <tr><td class="k num">2025</td><td>Certificação SCORING <strong>TOP 5% Melhores PME de Portugal</strong>, notação NS 5, com base no exercício de 2024</td><td>Reforça credibilidade junto de financiadores e parceiros · usada ativamente em comunicação comercial</td></tr>
+          <tr><td class="k num">Nov 2025</td><td>Depósito da prestação de contas de FY2024</td><td>Último ponto financeiro público</td></tr>
+          <tr><td class="k num">15 Abr 2026</td><td><strong>«Melhor Stand de Barcelos 2026»</strong> — 1.º lugar na plataforma Avaly + selo Stand Recomendado, por avaliação de clientes</td><td>Valida a estratégia de diferenciação por serviço · aumenta a exigência sobre consistência do pós-venda</td></tr>
+          <tr><td class="k num">20 Abr 2026</td><td>Destaque editorial no <strong>Jornal de Notícias</strong> e no <strong>Diário do Minho</strong></td><td>Amplificação de notoriedade · pressão sobre capacidade de resposta comercial</td></tr>
+          <tr><td class="k num">2025–26</td><td>Entrada de marcas emergentes (AION, MG) e crescimento da oferta eletrificada</td><td>Novos requisitos de avaliação, peritagem de bateria e capacidade oficinal</td></tr>
+          <tr><td class="k num">Em curso</td><td>Coexistência das marcas <strong>Red Service</strong> e <strong>Bosch Car Service</strong> em propriedades da empresa</td><td><span class="b flag">A esclarecer</span> Determina regulamento de garantia, localização do histórico de manutenção e programa de fidelização</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>A monitorizar · tendências setoriais, não anúncios da empresa</h3>
+    <ul class="ls">
+      <li><strong>Depósito das contas de FY2025</strong> — próximo ponto de verificação da tendência decrescente do volume de negócios</li>
+      <li><strong>Evolução do ISV e da fiscalidade de veículos importados</strong> — variável diretamente determinante da economia do modelo de importação direta</li>
+      <li><strong>Progressão das Zonas de Emissões Reduzidas</strong> — afeta valor residual e liquidez do stock diesel e gasolina mais antigo</li>
+      <li><strong>Normalização do mercado de usados eletrificados</strong> — a maturação de metodologias de certificação de bateria pode reduzir materialmente o risco de avaliação</li>
+      <li><strong>Pressão de plataformas digitais de usados e de programas de seminovos certificados dos construtores</strong> — comprime a proposta de valor do independente multimarca</li>
+    </ul>
+  </div>
+
+</section>
+
+<!-- ================= 06 MATURIDADE ================= -->
+<section class="panel" id="p6" role="tabpanel" aria-labelledby="t6">
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">6.1</span><h2>Maturidade do domínio de negócio</h2></div>
+    <p class="sec-lede">Escala 1–5 · inferida exclusivamente a partir de evidência pública. Não é uma auditoria e deve ser validada com o cliente.</p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:26%">Sub-domínio</th><th style="width:16%">Nota</th><th>Racional</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Sourcing e importação</td><td><div class="sc"><span class="sc-n">4,0</span><span class="sc-t"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span></div></td><td>Capacidade diferenciadora elevada a pilar estratégico · rede internacional de 25+ anos · sem pricing de compra assistido por dados</td></tr>
+          <tr><td class="k">Aquisição a particulares</td><td><div class="sc"><span class="sc-n">3,5</span><span class="sc-t"><i class="f"></i><i class="f"></i><i class="f"></i><i class="t"></i><i></i></span></div></td><td>Portal com fluxo, SLA e pressupostos publicados · processo comercialmente maduro, isolado do resto do estate</td></tr>
+          <tr><td class="k">Avaliação e peritagem</td><td><div class="sc"><span class="sc-n">3,0</span><span class="sc-t"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span></div></td><td>Compromisso forte de transparência · sem checklist padronizado publicado nem metodologia de SoH para elétricos</td></tr>
+          <tr><td class="k">Gestão de stock e pricing</td><td><div class="sc"><span class="sc-n">2,5</span><span class="sc-t"><i class="f"></i><i class="f"></i><i class="t"></i><i></i><i></i></span></div></td><td>Stock amplo, mas números inconsistentes entre páginas próprias · descontos indicam reação ao mercado, não política dinâmica</td></tr>
+          <tr><td class="k">Marketing e procura digital</td><td><div class="sc"><span class="sc-n">4,0</span><span class="sc-t"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span></div></td><td>Função dedicada e nomeada · simulador com matching ao stock · multicanal estruturado · blog irregular</td></tr>
+          <tr><td class="k">Processo comercial e F&amp;I</td><td><div class="sc"><span class="sc-n">3,5</span><span class="sc-t"><i class="f"></i><i class="f"></i><i class="f"></i><i class="t"></i><i></i></span></div></td><td>Modelo de Gestor de Negócios consistentemente reconhecido · sem evidência de CRM, SLA de lead ou funil instrumentado</td></tr>
+          <tr><td class="k">Preparação pré-venda</td><td><div class="sc"><span class="sc-n">3,0</span><span class="sc-t"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span></div></td><td>Capacidade oficinal própria adjacente aos stands, gama completa · sem padrão nem lead time publicados</td></tr>
+          <tr><td class="k">Entrega e logística</td><td><div class="sc"><span class="sc-n">3,5</span><span class="sc-t"><i class="f"></i><i class="f"></i><i class="f"></i><i class="t"></i><i></i></span></div></td><td>Entrega gratuita nacional e reboque estruturados — invulgar nesta dimensão · execução em terceiros, sem SLA público</td></tr>
+          <tr><td class="k">Operações de pós-venda</td><td><div class="sc"><span class="sc-n">3,5</span><span class="sc-t"><i class="f"></i><i class="f"></i><i class="f"></i><i class="t"></i><i></i></span></div></td><td>Marcação quase imediata, orçamento na hora, garantia de fábrica preservada · amostra de avaliação pública muito reduzida</td></tr>
+          <tr><td class="k">Garantia e reclamações</td><td><div class="sc"><span class="sc-n">3,0</span><span class="sc-t"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span></div></td><td>Garantia até 3 anos e regulamento de rede · cobertura Continente + Ilhas depende de rede terceira não caracterizada</td></tr>
+          <tr><td class="k">Cobertura fora do Minho</td><td><div class="sc"><span class="sc-n">2,0</span><span class="sc-t"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></span></div></td><td><strong>Maior lacuna estrutural</strong> entre o que é prometido comercialmente e o que é demonstrável publicamente</td></tr>
+          <tr><td class="k">Qualidade e governance</td><td><div class="sc"><span class="sc-n">3,5</span><span class="sc-t"><i class="f"></i><i class="f"></i><i class="f"></i><i class="t"></i><i></i></span></div></td><td>ISO declarada, selo de rede, SCORING NS 5, distinção Avaly · norma ISO específica não divulgada</td></tr>
+          <tr><td class="k">Prontidão para eletrificação</td><td><div class="sc"><span class="sc-n">2,0</span><span class="sc-t"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></span></div></td><td>Stock já inclui BEV · sem comunicação de capacidade certificada HV, diagnóstico de bateria ou garantia específica</td></tr>
+          <tr><td class="k">Talento e continuidade</td><td><div class="sc"><span class="sc-n">2,5</span><span class="sc-t"><i class="f"></i><i class="f"></i><i class="t"></i><i></i><i></i></span></div></td><td>Equipa comercial visível e elogiada — ativo real · headcount reduzido, dependência de indivíduos-chave, recrutamento ativo</td></tr>
+          <tr style="background:var(--wash)"><td class="k"><strong>Maturidade global do domínio</strong></td><td><div class="sc"><span class="sc-n">3,0</span><span class="sc-t"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span></div></td><td><strong>Operação madura e reputada, com diferenciação genuína no sourcing e no serviço. O limite está na espinha dorsal de dados e na capacidade de honrar a promessa nacional a partir de duas localizações.</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">6.2</span><h2>Maturidade tecnológica · atual vs. alvo</h2></div>
+    <p class="sec-lede">Coluna «Atual» baseada apenas em evidência pública. Coluna «Alvo» representa o nível proporcionado à estratégia declarada e à dimensão da empresa — não um ideal abstrato.</p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:23%">Área aplicacional</th><th style="width:9%">Atual</th><th style="width:9%">Alvo</th><th style="width:7%">Gap</th><th>Racional</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Vitrine digital e catálogo</td><td class="num"><strong>4,0</strong></td><td class="num">4,0</td><td class="num gap z">0</td><td>Área mais madura do estate · site moderno, catálogo filtrável, fornecedor certificado. Manter</td></tr>
+          <tr><td class="k">Recomendação ao cliente</td><td class="num"><strong>3,5</strong></td><td class="num">4,0</td><td class="num gap">0,5</td><td>Simulador invulgarmente sofisticado para a dimensão · falta feedback loop sobre o que converte</td></tr>
+          <tr><td class="k">Distribuição multicanal</td><td class="num"><strong>2,5</strong></td><td class="num">4,0</td><td class="num gap">1,5</td><td>Presença sólida em três plataformas · sem sincronização evidenciada, contagens divergentes</td></tr>
+          <tr><td class="k">Gestão de stock de viaturas</td><td class="num"><strong>2,0</strong></td><td class="num">4,5</td><td class="num gap">2,5</td><td>Sem fonte única de verdade · fundação de todo o domínio e maior gap absoluto</td></tr>
+          <tr><td class="k">Aquisição a particulares</td><td class="num"><strong>3,0</strong></td><td class="num">4,0</td><td class="num gap">1,0</td><td><strong>Ativo real e subvalorizado</strong> · penalizado por estar isolado e em fornecedor distinto</td></tr>
+          <tr><td class="k">Avaliação e pricing de compra</td><td class="num"><strong>2,0</strong></td><td class="num">4,0</td><td class="num gap">2,0</td><td>Captura existe, motor de valorização não · proposta gerada por análise humana</td></tr>
+          <tr><td class="k">Sourcing e importação</td><td class="num"><strong>2,0</strong></td><td class="num">3,5</td><td class="num gap">1,5</td><td>Capacidade humana forte, suporte de sistema ausente · custeio de importação sem evidência</td></tr>
+          <tr><td class="k">Fiscalidade do veículo</td><td class="num"><strong>2,0</strong></td><td class="num">4,0</td><td class="num gap">2,0</td><td>Exposição material sem controlo sistemático evidenciado · risco financeiro direto</td></tr>
+          <tr><td class="k">CRM e gestão de funil</td><td class="num"><strong>2,0</strong></td><td class="num">4,0</td><td class="num gap">2,0</td><td>Captura multicanal boa · gestão, atribuição e medição não evidenciadas. O funil termina onde devia começar</td></tr>
+          <tr><td class="k">Processo de venda</td><td class="num"><strong>2,5</strong></td><td class="num">3,5</td><td class="num gap">1,0</td><td>Modelo de Gestor de Negócios eficaz, mas assente em pessoas mais do que em sistema</td></tr>
+          <tr><td class="k">F&amp;I — crédito e seguro</td><td class="num"><strong>2,5</strong></td><td class="num">4,0</td><td class="num gap">1,5</td><td><strong>Capacidade de negócio forte, integração nula</strong> · maior oportunidade não explorada do estate</td></tr>
+          <tr><td class="k">Faturação e conformidade AT</td><td class="num"><strong>3,0</strong></td><td class="num">3,5</td><td class="num gap">0,5</td><td>Necessariamente conforme por obrigação legal</td></tr>
+          <tr><td class="k">Agendamento de serviço</td><td class="num"><strong>2,0</strong></td><td class="num">4,0</td><td class="num gap">2,0</td><td>Duplicado e <strong>assimétrico ao contrário</strong> — o canal de maior frequência tem a experiência menos automatizada</td></tr>
+          <tr><td class="k">Gestão de oficina</td><td class="num"><strong>2,5</strong></td><td class="num">4,0</td><td class="num gap">1,5</td><td>Ambiguidade Red Service / Bosch impede afirmar qual plataforma está em uso</td></tr>
+          <tr><td class="k">Gestão de peças e armazém</td><td class="num"><strong>1,5</strong></td><td class="num">3,5</td><td class="num gap">2,0</td><td>Nenhuma evidência · relação com distribuidor de peças não visivelmente instrumentada</td></tr>
+          <tr><td class="k">Garantia e reclamações</td><td class="num"><strong>2,0</strong></td><td class="num">4,0</td><td class="num gap">2,0</td><td>Garantia até 3 anos existe · rastreio de exposição por viatura não evidenciado</td></tr>
+          <tr><td class="k">Histórico de manutenção</td><td class="num"><strong>2,5</strong></td><td class="num">4,0</td><td class="num gap">1,5</td><td>Potencialmente repartido entre duas redes · canal e dado pertencem à rede, não à Fisacar</td></tr>
+          <tr><td class="k">Entrega e logística</td><td class="num"><strong>2,0</strong></td><td class="num">3,0</td><td class="num gap">1,0</td><td>Serviço nacional ativo · planeamento e rastreio não evidenciados</td></tr>
+          <tr><td class="k">Marketing digital e conteúdo</td><td class="num"><strong>3,5</strong></td><td class="num">4,0</td><td class="num gap">0,5</td><td>Função dedicada e prova social bem gerida · penalizado por lacunas de governação de conteúdo</td></tr>
+          <tr style="background:var(--flag-wash)"><td class="k"><strong>Dados, BI e reporting</strong></td><td class="num"><strong>1,0</strong></td><td class="num">4,0</td><td class="num gap">3,0</td><td><strong>Nenhuma evidência. Maior gap do estate — sem esta camada, nenhuma outra melhoria é mensurável</strong></td></tr>
+          <tr style="background:var(--flag-wash)"><td class="k"><strong>Integração e arquitetura</strong></td><td class="num"><strong>1,0</strong></td><td class="num">4,0</td><td class="num gap">3,0</td><td><strong>Quatro propriedades, dois fornecedores, duas plataformas de agendamento, duas redes oficinais — sem nenhum ponto de integração evidenciado</strong></td></tr>
+          <tr><td class="k">Automação e IA</td><td class="num"><strong>1,5</strong></td><td class="num">3,0</td><td class="num gap">1,5</td><td>Automação de apresentação e captura · sem RPA, ML ou GenAI. Alinhado com a média nacional das PME</td></tr>
+          <tr><td class="k">Cloud e infraestrutura</td><td class="num"><strong>2,0</strong></td><td class="num">3,0</td><td class="num gap">1,0</td><td>Camada web em serviços geridos por terceiros · back-office não caracterizado</td></tr>
+          <tr><td class="k">Segurança e proteção de dados</td><td class="num"><strong>2,0</strong></td><td class="num">4,0</td><td class="num gap">2,0</td><td>Consentimento correto no ponto de captura · políticas fragmentadas, dados sensíveis em domínio de fornecedor distinto</td></tr>
+          <tr style="background:var(--flag-wash)"><td class="k"><strong>Governação e função de TI</strong></td><td class="num"><strong>1,0</strong></td><td class="num">3,5</td><td class="num gap">2,5</td><td><strong>As quatro inconsistências públicas e a colisão de marca são evidência direta de que ninguém detém a visão de conjunto</strong></td></tr>
+          <tr style="background:var(--wash)"><td class="k"><strong>Maturidade global do estate</strong></td><td class="num"><strong>2,1</strong></td><td class="num">3,9</td><td class="num gap">1,8</td><td><strong>Front-end acima da média do segmento e perímetro de negócio invulgarmente completo; núcleo de dados, integração e governação substancialmente abaixo do que a estratégia exige</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">6.3</span><h2>Leitura e sequência de intervenção</h2></div>
+
+    <div class="call solid">
+      <div class="call-k">A tese em duas frases</div>
+      <p class="call-b">A Fisacar investiu onde o cliente vê e não investiu onde o negócio se mede. Mas o achado central é outro: <strong>a empresa detém um perímetro de negócio que a maioria dos concorrentes diretos não tem — compra, venda, oficina, crédito e seguros, esta última literalmente ao balcão dos stands — e não consegue explorar nenhuma dessas adjacências, porque cada uma vive num sistema que não fala com os outros.</strong></p>
+    </div>
+
+    <p class="sec-lede">As onze áreas com gap igual ou superior a 2 pontos descrevem um único problema repetido: não existe uma espinha dorsal onde o negócio se acumule. A sequência abaixo está ordenada por retorno, não por facilidade.</p>
+
+    <div class="bcard dark">
+      <div class="card-k">Prioridade 01</div>
+      <div class="card-t">Identidade única de cliente e de viatura, transversal às quatro propriedades</div>
+      <p class="card-b">Passou a ser a prioridade número um, à frente do stock. É o que transforma quatro funis isolados numa cadeia — e o que desbloqueia o <strong>cross-sell crédito–seguro–oficina</strong> que hoje está tecnicamente vedado apesar de comercialmente disponível.</p>
+    </div>
+    <div class="bcard">
+      <div class="card-k">Prioridade 02</div>
+      <div class="card-t">Fonte única de verdade do stock e dossiê digital da viatura</div>
+      <p class="card-b">Alimentado a montante pelo portal <strong>Compramos Fisacar</strong> e propagado por feed a todos os canais. Resolve as inconsistências públicas documentadas e dá suporte real à promessa de <strong>«livro aberto»</strong> — que hoje é um compromisso comercial sem artefacto de sistema.</p>
+    </div>
+    <div class="bcard">
+      <div class="card-k">Prioridade 03</div>
+      <div class="card-t">Resolução da ambiguidade da rede oficinal</div>
+      <p class="card-b">Decisão explícita <strong>Red Service ou Bosch Car Service</strong>, com propagação a todas as propriedades e consolidação do histórico de manutenção. É tanto uma decisão de negócio como de sistemas — e tem implicações contratuais e reputacionais, não apenas técnicas.</p>
+    </div>
+    <div class="bcard">
+      <div class="card-k">Prioridade 04</div>
+      <div class="card-t">Camada mínima de KPIs</div>
+      <p class="card-b"><strong>Days in stock · GPU · conversão de lead por origem · penetração de F&amp;I · taxa de retorno à oficina.</strong> Sem estes cinco indicadores, nenhuma das intervenções anteriores é demonstrável, e a decisão de compra — o momento onde se define a margem deste negócio — continua a depender exclusivamente de julgamento individual.</p>
+    </div>
+
+    <div class="call">
+      <div class="call-k">Sobre IA — sequenciamento</div>
+      <p class="call-b">A IA continua a ser um capítulo posterior, mas há aqui um caso de uso quase pronto: <strong>o portal de aquisição já captura dados estruturados de viatura com pressupostos formalizados</strong> — exatamente a matéria-prima de um motor de avaliação assistida. Falta apenas o histórico de transações consolidado para o treinar, o que remete de novo para as prioridades 1 e 2.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">6.4</span><h2>Limitações desta análise</h2></div>
+    <p class="sec-lede">A explicitar ao cliente antes de qualquer conclusão. Várias notas baixas refletem <strong>ausência de evidência pública</strong>, que não é o mesmo que ausência de capacidade.</p>
+    <ul class="ls">
+      <li>A Fisacar é uma <strong>PME privada não cotada</strong> — não existe relatório anual, apresentação a investidores ou comunicado de resultados</li>
+      <li>Os valores financeiros são <strong>intervalos</strong> de bases de dados empresariais, não demonstrações financeiras. Os valores exatos de FY2024 exigem certidão de contas anuais</li>
+      <li><strong>Nenhum ERP, DMS ou CRM é identificável publicamente.</strong> Toda a secção de plataforma nuclear é enquadramento lógico, não descrição factual</li>
+      <li>As plataformas identificadas estão confirmadas por evidência direta — rodapés, domínios ativos, filiação declarada, publicação de app. <strong>Os mecanismos de integração entre elas não estão</strong></li>
+      <li>Os detalhes técnicos da Plataforma RedService descrevem a <strong>plataforma da rede</strong>, documentada academicamente, e não uma implementação específica na Fisacar</li>
+      <li>A coexistência <strong>Red Service / Bosch Car Service</strong> é um facto observável; a sua interpretação não. É a primeira pergunta a fazer ao cliente</li>
+      <li>A relação societária formal entre Ferreira &amp; Guimarães, Lda. e Interseguros, Lda. <strong>não é verificável em fonte aberta</strong> — a ligação é inferida da co-localização exata e carece de confirmação documental</li>
+      <li>Gerência, estrutura acionista e auditor <strong>não constam</strong> de fonte aberta gratuita</li>
+      <li>As avaliações de maturidade são <strong>inferências analíticas sobre evidência pública, não auditorias</strong>, e devem ser testadas em conversa com o cliente</li>
+    </ul>
+  </div>
+
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img class="foot-logo" src="data:image/png;base64,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" alt="Fisacar">
+        <p>Domain Context &amp; Technology Landscape Overview · Aquisição e Seleção de Viaturas · Comercialização e Venda · Preparação e Assistência Pós-Venda.<br><br>
+        Documento preparado exclusivamente a partir de <strong style="color:#fff;font-weight:600">fontes de informação pública</strong>. Não contém dados confidenciais do cliente. Valores não públicos estão assinalados como «estimado» e as inferências como «working assumption». Preparado para uso interno em contexto de preparação de demonstração.</p>
+      </div>
+      <div class="foot-r">
+        <span class="conf">Internal — Confidential</span><br><br>
+        Versão 2 · Setembro 2026<br>
+        Fisacar · Ferreira &amp; Guimarães, Lda.<br>
+        NIPC 503304395
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+
+  function show(i){
+    tabs.forEach(function(t,j){
+      var on = i===j;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      panels[j].classList.toggle('on', on);
+    });
+    window.scrollTo({top: document.querySelector('.tabnav').offsetTop - 1, behavior:'smooth'});
+  }
+
+  tabs.forEach(function(t,i){
+    t.addEventListener('click', function(){ show(i); });
+    t.addEventListener('keydown', function(e){
+      var n = null;
+      if(e.key==='ArrowRight') n = (i+1) % tabs.length;
+      if(e.key==='ArrowLeft')  n = (i-1+tabs.length) % tabs.length;
+      if(e.key==='Home')       n = 0;
+      if(e.key==='End')        n = tabs.length-1;
+      if(n!==null){ e.preventDefault(); tabs[n].focus(); show(n); }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
